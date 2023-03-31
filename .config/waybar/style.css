@@ -2,7 +2,7 @@
   /* `otf-font-awesome` is required to be installed for icons */
   font-family: JetBrainsMono Nerd Font;
   font-size: 17px;
-  border-radius: 17px;
+  border-radius: 15px;
 }
 
 #clock,
@@ -70,8 +70,8 @@ window * {
   box-shadow: rgba(17, 17, 27, 0.2) 0 0 3 2px;
   background-color: rgba(30, 30, 46, 0.6);
   border-radius: 12px;
+  padding:0 8px 0 10px;
   margin-left: 10px;
-
   transition: all 0.3s ease;
 }
 
