@@ -195,7 +195,7 @@
   
   "custom/power-menu": {
     "format": "⏻",
-    "on-click": "~/.config/waybar/scripts/power-menu/powermenu.sh"
+    "on-click": "~/.config/rofi/powermenu/type-4/powermenu.sh"
   },
 
 }
