@@ -137,8 +137,9 @@
  
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "  {signalStrength}%",
-    "format-alt": "  {essid} ({signalStrength})%",
+    "format-wifi": "  {essid}",
+    "format-alt": "  {essid} ({bandwidthDownBytes})",
+    "interval":5,
     "format-ethernet": " {cidr}",
     "tooltip-format": " {essid} ({signalStrength})% ",
     "format-linked": "{ifname} (No IP)",
