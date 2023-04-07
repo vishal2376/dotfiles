@@ -24,7 +24,7 @@
     # dynamic width from 0 to 300
     # width = (0, 300)
     # constant width of 300
-    width = (0, 300)
+    width = (0, 400)
 
     # The maximum height of a single notification, excluding the frame.
     height = 200
@@ -464,3 +464,7 @@ script = "~/.scripts/music-art"
 [spotify-icon]
 appname = "Spotify"
 icon = "~/.cache/temp.png"
+
+[play_sound]
+summary = "*"
+script = "/home/vishal/.config/dunst/sound-critical.sh"
