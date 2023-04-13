@@ -86,14 +86,10 @@ window * {
     58deg,
     #89B4FA,
     #adB4FA,
+    #b4befe,
     #cba6f7,
-    #f38ba8,
-    #eba0ac,
-    #fab387,
-    #f9e2af,
-    #a6e3a1,
-    #94e2d5
-  );
+    #f5c2e7
+    );
   background-size: 300% 300%;
   animation: colored-gradient 10s ease infinite;
 }
