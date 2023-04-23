@@ -90,4 +90,7 @@ rm /tmp/required_packages_error.log manual_install.txt
 ####################################################
 # git clone https://github.com/vishal2376/dotfiles.git
 # cd dotfiles
-# cp -r ./config/* ~/.config
+# cp -r ./.config/* ~/.config
+
+#copy custom scripts
+# cp ./scripts/* ~/.local/bin
