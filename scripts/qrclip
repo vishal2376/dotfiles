@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#required package
+# wl-paste, qrencode, imv
+
+# generate QR code
+qrencode -t PNG -s 8 -o /tmp/tmp.png $(wl-paste)
+
+# open QR code image
+imv /tmp/tmp.png
