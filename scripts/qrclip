@@ -1,10 +1,27 @@
 #!/bin/bash
 
-#required package
+# Required packages
 # wl-paste, qrencode, imv
 
-# generate QR code
-qrencode -t PNG -s 8 -o /tmp/tmp.png $(wl-paste)
+# Get clipboard contents
+contents=$(wl-paste)
 
-# open QR code image
+# Check if clipboard contents are empty
+if [ -z "$contents" ]
+then
+  echo "Clipboard is empty."
+  exit 1
+fi
+
+# Generate QR code
+qrencode -t PNG -s 8 -o /tmp/tmp.png "$contents"
+
+# Check if QR code was generated successfully
+if [ $? -ne 0 ]
+then
+  echo "Failed to generate QR code."
+  exit 1
+fi
+
+# Open QR code image
 imv /tmp/tmp.png
