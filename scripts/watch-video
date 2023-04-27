@@ -1,0 +1,27 @@
+#!/bin/zsh
+
+# video dir path
+vid_dir="/mnt/ECHO/Videos/YT-Downloads"
+
+# Find video files and folders and sort by latest item
+videos=$(find "$vid_dir" -type f -o -type d -printf '%T@ %p\n' | sort -nr | cut -d" " -f2-)
+
+# Check if there are any videos found
+if [ -z "$videos" ]
+then
+  echo "No videos found in $vid_dir."
+  exit 1
+fi
+
+# Use fzf to select video
+selected=$(echo "$videos" | fzf --height=50% --border --no-multi --reverse --prompt="Watch: " --bind "ctrl-a:select-all+accept")
+
+# Check if user selected a video
+if [ -z "$selected" ]
+then
+  echo "No video selected."
+  exit 1
+fi
+
+# Open selected video in mpv
+mpv "$selected"
