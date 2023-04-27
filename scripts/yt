@@ -1,0 +1,42 @@
+#!/bin/bash
+
+#required package
+# yt-dlp, mpv, wl-paste
+
+# Check if yt-dlp is installed
+command -v yt-dlp >/dev/null 2>&1 || { echo >&2 "yt-dlp is not installed. Aborting."; exit 1; }
+
+# Set variables
+output_dir="$HOME/Videos/YT-Downloads"
+output_template="%(channel)s/%(playlist|Videos)s/%(playlist_index|)s%(playlist_index&. |)s%(title)s.%(ext)s"
+
+# Check if output directory exists and create it if it doesn't
+if [ ! -d "$output_dir" ]; then
+    mkdir -p "$output_dir"
+fi
+
+# Check if video URL is provided as an argument
+if [ $# -eq 0 ]; then
+    # If no argument is provided, check if a YouTube link is in the clipboard
+    if type "wl-paste" >/dev/null 2>&1; then
+        video_url=$(wl-paste | grep -Eo '(https?://)?(www\.)?(youtube\.com|youtu\.be)/[^\s]+' | head -1)
+    else
+        echo "Error: No video URL provided and wl-paste is not installed. Aborting."
+        exit 1
+    fi
+else
+    video_url="$1"
+fi
+
+# Check if a valid video URL is found
+if [ -z "$video_url" ]; then
+    echo "Error: No valid video URL found. Aborting."
+    exit 1
+fi
+
+# Download video and show notification if successful
+if yt-dlp -f "bestvideo[height<=1080]+ba" --add-chapters "$video_url" -o "$output_dir/$output_template"; then
+    notify-send "Download Completed"
+else
+    notify-send "Download Failed"
+fi
