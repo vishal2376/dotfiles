@@ -137,8 +137,8 @@
  
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "  {essid}",
-    "format-alt": "  {essid} ({bandwidthDownBytes})",
+    "format-wifi": "  {essid} ({bandwidthDownBytes})",
+    "format-alt": "  {essid}",
     "interval":5,
     "format-ethernet": " {cidr}",
     "tooltip-format": " {essid} ({signalStrength})% ",
@@ -147,7 +147,7 @@
     "tooltip-format-ethernet": " {ifname}  ",
     "tooltip-format-disconnected": " Disconnected ",
     "max-length": 50,
-    "on-click-right": "wifi-menu"
+    "on-click-right": "~/.config/hypr/scripts/wifi-menu/rofi-network-manager.sh"
   },
 
   "tray": {
